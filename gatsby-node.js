@@ -59,7 +59,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     ) {
       if (!Object.prototype.hasOwnProperty.call(node.frontmatter, "date")) {
         const date = fileNode.relativePath.toString().match(/\d*-\d*-\d*/)[0];
-        console.log(date);
         node.frontmatter.date = date;
       }
       slug = `/${_.kebabCase(node.frontmatter.title)}`;
@@ -72,6 +71,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     }
 
     if (Object.prototype.hasOwnProperty.call(node, "frontmatter")) {
+      if (Object.hasOwnProperty.call(node.frontmatter, "categories")) {
+          if (!Array.isArray(node.frontmatter.categories)) {
+            node.frontmatter.categories = [node.frontmatter.categories];
+          }
+      }
       if (Object.prototype.hasOwnProperty.call(node.frontmatter, "slug"))
         slug = `/${_.kebabCase(node.frontmatter.slug)}`;
       if (Object.prototype.hasOwnProperty.call(node.frontmatter, "date")) {
@@ -142,7 +146,9 @@ exports.createPages = ({ graphql, actions }) => {
           }
 
           if (edge.node.frontmatter.categories) {
-            categorySet.add(edge.node.frontmatter.categories);
+            edge.node.frontmatter.categories.map(category => {
+              categorySet.add(category);
+            });
           }
 
           createPage({
