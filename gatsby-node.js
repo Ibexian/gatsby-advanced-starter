@@ -57,6 +57,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       Object.prototype.hasOwnProperty.call(node, "frontmatter") &&
       Object.prototype.hasOwnProperty.call(node.frontmatter, "title")
     ) {
+      if (!Object.prototype.hasOwnProperty.call(node.frontmatter, "date")) {
+        const date = fileNode.relativePath.toString().match(/\d*-\d*-\d*/)[0];
+        console.log(date);
+        node.frontmatter.date = date;
+      }
       slug = `/${_.kebabCase(node.frontmatter.title)}`;
     } else if (parsedFilePath.name !== "index" && parsedFilePath.dir !== "") {
       slug = `/${parsedFilePath.dir}/${parsedFilePath.name}/`;
@@ -110,7 +115,7 @@ exports.createPages = ({ graphql, actions }) => {
                 node {
                   frontmatter {
                     tags
-                    category
+                    categories
                   }
                   fields {
                     slug
@@ -136,8 +141,8 @@ exports.createPages = ({ graphql, actions }) => {
             });
           }
 
-          if (edge.node.frontmatter.category) {
-            categorySet.add(edge.node.frontmatter.category);
+          if (edge.node.frontmatter.categories) {
+            categorySet.add(edge.node.frontmatter.categories);
           }
 
           createPage({

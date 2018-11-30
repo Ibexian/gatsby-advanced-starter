@@ -28,7 +28,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(
       limit: 1000
       sort: { fields: [fields___date], order: DESC }
-      filter: { frontmatter: { category: { eq: $category } } }
+      filter: { frontmatter: { categories: { eq: $category } } }
     ) {
       totalCount
       edges {
@@ -42,7 +42,9 @@ export const pageQuery = graphql`
           frontmatter {
             title
             tags
-            cover
+            image {
+              feature
+            }
             date
           }
         }

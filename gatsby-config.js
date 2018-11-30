@@ -155,8 +155,12 @@ module.exports = {
                       title
                       cover
                       date
-                      category
+                      categories
                       tags
+                      feature_video
+                      image {
+                        feature
+                      }
                     }
                   }
                 }
