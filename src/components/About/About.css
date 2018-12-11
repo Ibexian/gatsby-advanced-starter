@@ -1,7 +1,12 @@
 .about {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
     min-height: 300px;
+}
+
+
+.about p {
+    padding: 0 1em;
+}
+
+.about .gatsby-image-wrapper {
+    margin-bottom: 2em;
 }
