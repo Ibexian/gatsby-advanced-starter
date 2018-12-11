@@ -7,13 +7,12 @@ import config from "../../data/SiteConfig";
 
 export default class TagTemplate extends React.Component {
   render() {
-    const { tag } = this.props.pageContext;
-    const postEdges = this.props.data.allMarkdownRemark.edges;
+    const {data: {allMarkdownRemark: {edges}}, pageContext: { tag } } = this.props;
     return (
       <Layout>
         <div className="tag-container">
           <Helmet title={`Posts tagged as "${tag}" | ${config.siteTitle}`} />
-          <PostListing postEdges={postEdges} />
+          <PostListing postEdges={edges} />
         </div>
       </Layout>
     );
@@ -41,7 +40,16 @@ export const pageQuery = graphql`
             title
             tags
             image {
-              feature
+              feature {
+                childImageSharp {
+                  fluid(traceSVG: {
+                    color: "#5E6A68",
+                    background: "#F5F3F0"
+                  }) {
+                    ...GatsbyImageSharpFluid_tracedSVG
+                  }
+                }
+              }
             }
             date
           }

@@ -1,5 +1,6 @@
 const config = require("./data/SiteConfig");
 const urljoin = require("url-join");
+const path = require("path");
 
 module.exports = {
   pathPrefix: config.pathPrefix,
@@ -24,6 +25,13 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
+        name: "images",
+        path: `${__dirname}/src/content/images`
+      }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
         name: "assets",
         path: `${__dirname}/static/`
       }
@@ -32,7 +40,7 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "posts",
-        path: `${__dirname}/content/`
+        path: `${__dirname}/src/content/`
       }
     },
     {
@@ -42,7 +50,7 @@ module.exports = {
           {
             resolve: "gatsby-remark-images",
             options: {
-              maxWidth: 690
+              maxWidth: 1080
             }
           },
           {
@@ -67,6 +75,7 @@ module.exports = {
       }
     },
     "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
     "gatsby-plugin-catch-links",
     "gatsby-plugin-twitter",
     "gatsby-plugin-sitemap",

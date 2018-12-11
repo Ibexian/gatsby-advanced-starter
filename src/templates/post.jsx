@@ -1,6 +1,7 @@
 import React from "react";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
+import Img from 'gatsby-image';
 import Layout from "../layout";
 import UserInfo from "../components/UserInfo/UserInfo";
 import PostTags from "../components/PostTags/PostTags";
@@ -12,8 +13,7 @@ import "./post.css";
 
 export default class PostTemplate extends React.Component {
   render() {
-    const { slug } = this.props.pageContext;
-    const postNode = this.props.data.markdownRemark;
+    const { pageContext: {slug}, data: {markdownRemark: postNode } } = this.props;
     const post = postNode.frontmatter;
     if (!post.id) {
       post.id = slug;
@@ -29,6 +29,7 @@ export default class PostTemplate extends React.Component {
           </Helmet>
           <SEO postPath={slug} postNode={postNode} postSEO />
           <div>
+            <Img fluid={post.image.feature.childImageSharp.fluid} className="headerImage" />
             <h1>{post.title}</h1>
             <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
             <div className="post-meta">
@@ -53,7 +54,14 @@ export const pageQuery = graphql`
       frontmatter {
         title
         image {
-          feature
+          feature {
+            publicURL
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
         date
         categories

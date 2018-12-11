@@ -61,13 +61,22 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         const date = fileNode.relativePath.toString().match(/\d*-\d*-\d*/)[0];
         node.frontmatter.date = date;
       }
-      slug = `/${_.kebabCase(node.frontmatter.title)}`;
+      const dirs = Array.isArray(node.frontmatter.categories) ?
+        node.frontmatter.categories.join("/") :
+        node.frontmatter.categories;
+
+      slug = `${dirs ? "/" : ""}${dirs}/${_.kebabCase(node.frontmatter.title)}`;
     } else if (parsedFilePath.name !== "index" && parsedFilePath.dir !== "") {
       slug = `/${parsedFilePath.dir}/${parsedFilePath.name}/`;
     } else if (parsedFilePath.dir === "") {
       slug = `/${parsedFilePath.name}/`;
     } else {
       slug = `/${parsedFilePath.dir}/`;
+    }
+
+    if (Object.prototype.hasOwnProperty.call(node, "frontmatter")) {
+      console.log(node.frontmatter.image.feature)
+      node.frontmatter.image.feature = `./images/${node.frontmatter.image.feature}`
     }
 
     if (Object.prototype.hasOwnProperty.call(node, "frontmatter")) {
@@ -120,6 +129,16 @@ exports.createPages = ({ graphql, actions }) => {
                   frontmatter {
                     tags
                     categories
+                    image {
+                      feature {
+                        publicURL
+                        childImageSharp {
+                          sizes(maxWidth: 2000) {
+                            srcSet
+                          }
+                        }
+                      }
+                    }
                   }
                   fields {
                     slug

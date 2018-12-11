@@ -7,15 +7,14 @@ import config from "../../data/SiteConfig";
 
 export default class CategoryTemplate extends React.Component {
   render() {
-    const { category } = this.props.pageContext;
-    const postEdges = this.props.data.allMarkdownRemark.edges;
+    const {data: {allMarkdownRemark: {edges}}, pageContext: { category } } = this.props;
     return (
       <Layout>
         <div className="category-container">
           <Helmet
             title={`Posts in category "${category}" | ${config.siteTitle}`}
           />
-          <PostListing postEdges={postEdges} />
+          <PostListing postEdges={edges} />
         </div>
       </Layout>
     );
@@ -43,7 +42,15 @@ export const pageQuery = graphql`
             title
             tags
             image {
-              feature
+              feature {
+                childImageSharp {
+                  fluid(traceSVG: {
+                    color: "#5E6A68"
+                  }) {
+                    ...GatsbyImageSharpFluid_tracedSVG
+                  }
+                }
+              }
             }
             date
           }
