@@ -5,7 +5,7 @@ layout: post
 categories: videos
 tags: [videos, sweets, egg custard, ginger]
 excerpt: 
-title: "Chinese Steamed Ginger Egg Custard"
+title: "Chinese Steamed Ginger Egg Custard Video"
 feature_video: https://www.youtube.com/embed/gLC6c6RqNjs
 image:
     feature: 141-1.jpg

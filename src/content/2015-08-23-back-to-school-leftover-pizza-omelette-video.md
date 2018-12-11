@@ -6,7 +6,7 @@ layout: post
 categories: [videos, recipes]
 tags: [videos]
 excerpt: 
-title: "'Back to School' Leftover Pizza Omelette"
+title: "'Back to School' Leftover Pizza Omelette Video"
 feature_video: https://www.youtube.com/embed/nNSvbSu9GEo
 image:
     feature: 144-1.jpg

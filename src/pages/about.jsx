@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { graphql } from "gatsby";
 import Helmet from "react-helmet";
 import Layout from "../layout";
 import About from "../components/About/About";

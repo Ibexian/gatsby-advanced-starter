@@ -6,7 +6,6 @@ export default class About extends Component {
   render() {
     return (
       <div className="about">
-
         <Img fluid={this.props.image} />
         <h1>
         Christina Ng

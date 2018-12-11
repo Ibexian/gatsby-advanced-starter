@@ -75,7 +75,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     }
 
     if (Object.prototype.hasOwnProperty.call(node, "frontmatter")) {
-      console.log(node.frontmatter.image.feature)
       node.frontmatter.image.feature = `./images/${node.frontmatter.image.feature}`
     }
 
@@ -129,6 +128,7 @@ exports.createPages = ({ graphql, actions }) => {
                   frontmatter {
                     tags
                     categories
+                    feature_video
                     image {
                       feature {
                         publicURL

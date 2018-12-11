@@ -5,7 +5,7 @@ class UserLinks extends Component {
   getLinkElements() {
     const { config: {userLinks}, labeled } = this.props;
     return userLinks.map(link => (
-      <li keykey={link.label}>
+      <li key={link.label}>
         <a href={link.url} className={link.iconClassName}>
           {labeled ? link.label : ""}
         </a>
