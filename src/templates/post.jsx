@@ -2,33 +2,45 @@ import React from "react";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
 import Img from 'gatsby-image';
+import $ from 'jquery';
 import Layout from "../layout";
 import PostTags from "../components/PostTags/PostTags";
 import SocialLinks from "../components/SocialLinks/SocialLinks";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
+import products from "../../data/products";
 import "./b16-tomorrow-dark.css";
 import "./post.css";
-import $ from 'jquery';
+
 window.jQuery = $;
 require("../components/Video/fitVids.js");
 
 export default class PostTemplate extends React.Component {
   componentDidMount() {
     $("#main").fitVids();
+    this.addProductLinks();
   }
 
   componentWillUnmount() {
     $("#main").fitVids('destroy');
   }
 
+  /* eslint-disable */
+  addProductLinks() {
+    products.products.map( product => {
+      const li = $(`.ingredients li:contains(${product.name})`);
+      return li.wrap(`<a class="productLink" href="${product.url}"></a>`);
+    });
+  }
+  /* eslint-enable */
+
   displayPhotoOrVideo() {
     const { data: { markdownRemark: frontmatter } } = this.props;
-    const {frontmatter: {feature_video}} = frontmatter;
-    if (feature_video) {
+    const {frontmatter: {feature_video: video}} = frontmatter;
+    if (video) {
       return (
         <div className="youtube">
-          <iframe className="youtube-player" type="text/html" width="640" height="385" src={feature_video} allowFullScreen frameBorder="0"></iframe>
+          <iframe className="youtube-player" type="text/html" width="640" height="385" src={video} allowFullScreen frameBorder="0" />
         </div>
       )
     }
