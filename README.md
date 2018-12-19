@@ -6,8 +6,6 @@
 - Image formatting for Post Pages
 - Image Captions Styles (typography.scss)
 - Get RSS feed working
-- Ingredient Amazon Links
-- Redirect from
 - Link Hover Effect
 - 404 Page
 - SEO
