@@ -1,21 +1,22 @@
 ## TO DO
 
 - Search Page and Function
-- Import fonts and additional Styles
+- Import additional Styles
 - Recreate Index Page
-- Style / Formatting for Post Pages
+- Image formatting for Post Pages
 - Image Captions Styles (typography.scss)
-- Videos Inserted for all posts with "feature_video"
-- Fix Hamburger for Small screens
 - Get RSS feed working
-- Google Analytics ID
-- Figure out Github Deployment (gh-pages)
+- Ingredient Amazon Links
+- Redirect from
+- Link Hover Effect
+- 404 Page
 - SEO
   - Sitemap generation
   - robots.txt
-- Offline support
+- Offline support - caching common.js?
 - Web App Manifest support - fix icons / favicon & Description
-
+- Google Analytics ID
+- Figure out Github Deployment (gh-pages)
 
 
 WARNING: Make sure to edit `static/robots.txt` to include your domain for the sitemap!

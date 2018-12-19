@@ -1,0 +1,16 @@
+.post-tag-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.post-tag-container a {
+    padding: 0.25em;
+    margin-top: 1em;
+    background: #f5f2f0;
+    border: 1px solid #ebe5e1;
+}
+
+.post-tag-container a:hover {
+    color: #B33B32;
+}
