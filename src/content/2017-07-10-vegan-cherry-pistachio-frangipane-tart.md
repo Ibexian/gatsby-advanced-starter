@@ -4,6 +4,7 @@ categories: [videos, recipes]
 tags: [videos, vegan, sweets, cherry tart, tart, frangipane, frangipane tart, cherry frangipane tart, pistachio, cherry pistachio frangipane tart, vegan frangipane tart, cherries, cherry season, almonds, almond extract, gluten-free]
 excerpt: 
 title: "Vegan Gluten-Free Cherry Pistachio Frangipane Tart"
+featured: true
 feature_video: https://www.youtube.com/embed/hYkQcNCNYuk
 image:
     feature: 331-10.jpg

@@ -30,6 +30,7 @@
     "jquery": "^3.3.1",
     "lodash": "^4.17.4",
     "moment": "^2.22.2",
+    "nuka-carousel": "^4.4.4",
     "prismjs": "^1.15.0",
     "react": "^16.6.0",
     "react-disqus-comments": "^1.4.0",

@@ -5,6 +5,7 @@ tags: [videos, sparerib, vegan dim sum, vegetarian dim sum, pork sparerib rice, 
 excerpt: 
 title: "Vegan Pork Sparerib Black Bean Rice"
 feature_video: https://www.youtube.com/embed/CLVcgVUCRxg
+featured: true
 image:
     feature: 336-1.jpg
 ---

@@ -4,6 +4,7 @@ categories: [videos, recipes]
 tags: [videos, vegan, nomeats, zongzi, zoong, bamboo rice, dragon boat, chinese]
 excerpt: 
 title: "Vegan Zongzi - Chinese Bamboo Steamed Rice"
+featured: true
 feature_video: https://www.youtube.com/embed/UU2A89rlAD0
 image:
     feature: 308-1.jpg

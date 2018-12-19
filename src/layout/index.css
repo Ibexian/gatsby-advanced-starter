@@ -213,3 +213,33 @@ h6 {
     margin-bottom: 26px;
     margin-bottom: 1.625rem
 }
+
+.slider:hover .controlButton {
+    background: rgba(0, 0, 0, 0.1) none repeat scroll 0% 0%;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+
+.controlButton {
+    background: rgba(0, 0, 0, 0.0) none repeat scroll 0% 0%;
+    color: rgba(255, 255, 255, 0.0);
+    border: 0px none;
+    padding: 15px;
+    outline: currentcolor none 0px;
+    opacity: 1;
+    cursor: pointer;
+    font-size: 200%;
+}
+
+.controlButton:hover {
+    background: rgba(0, 0, 0, 0.4) none repeat scroll 0% 0% !important;
+    color: white !important;
+}
+
+.featureImage {
+    height: 500px;
+}
+
+.featureBox .h2 {
+    float: right;
+}

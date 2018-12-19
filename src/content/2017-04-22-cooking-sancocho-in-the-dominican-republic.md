@@ -4,6 +4,7 @@ categories: [videos, blog]
 tags: [blog, traveling spoon, dominican republic]
 excerpt: 
 title: "Cooking in the Dominican Republic"
+featured: true
 feature_video: https://www.youtube.com/embed/O9VLbGGtxK4
 image:
     feature: 293-18.jpg

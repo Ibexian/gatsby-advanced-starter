@@ -129,6 +129,7 @@ exports.createPages = ({ graphql, actions }) => {
                     tags
                     categories
                     feature_video
+                    featured
                     image {
                       feature {
                         publicURL

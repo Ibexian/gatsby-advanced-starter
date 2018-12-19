@@ -4,6 +4,7 @@ categories: [videos, recipes]
 tags: [videos, sweets, vegan, chinese peanut cookies, peanut cookies, cookies]
 excerpt: 
 title: "Vegan Chinese Peanut Cookies"
+featured: true
 feature_video: https://www.youtube.com/embed/4vSYeAXF_dw
 image:
     feature: 335-1.jpg
