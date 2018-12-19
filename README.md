@@ -3,7 +3,6 @@
 - Search Page and Function
 - Import additional Styles
 - Recreate Index Page
-- Image formatting for Post Pages
 - Image Captions Styles (typography.scss)
 - Get RSS feed working
 - Link Hover Effect
