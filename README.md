@@ -2,16 +2,16 @@
 
 - Search Page and Function
 - Import additional Styles
-- Recreate Index Page
 - Image Captions Styles (typography.scss)
 - Get RSS feed working
-- Link Hover Effect
 - 404 Page
 - SEO
   - Sitemap generation
   - robots.txt
 - Offline support - caching common.js?
 - Web App Manifest support - fix icons / favicon & Description
+- Relook at redirects
+- Recreate Index Page - Ask Christina what she wants
 - Google Analytics ID
 - Figure out Github Deployment (gh-pages)
 

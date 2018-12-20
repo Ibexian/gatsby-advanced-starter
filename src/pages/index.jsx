@@ -20,7 +20,7 @@ class Index extends React.Component {
           <button type="button" className="controlButton" onClick={previousSlide}>{`<`}</button>
         )}
         renderCenterRightControls={({ nextSlide }) => (
-          <button type="button" className="controlButton" onClick={nextSlide}>></button>
+          <button type="button" className="controlButton" onClick={nextSlide}>{`>`}</button>
         )}
         renderBottomCenterControls="false"
       >
@@ -75,7 +75,7 @@ export const pageQuery = graphql`
             image {
                 feature {
                     childImageSharp {
-                      fluid {
+                      fluid(maxWidth: 1800, maxHeight: 1000, cropFocus: ENTROPY) {
                         ...GatsbyImageSharpFluid
                       }
                     }

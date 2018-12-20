@@ -50,7 +50,8 @@
 }
 
 .article-wrap a {
-    color: #D7635A
+    color: #D7635A;
+    text-decoration: underline;
 }
 
 .article-wrap a:hover {

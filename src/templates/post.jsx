@@ -40,7 +40,7 @@ export default class PostTemplate extends React.Component {
     if (video) {
       return (
         <div className="youtube">
-          <iframe className="youtube-player" type="text/html" width="640" height="385" src={video} allowFullScreen frameBorder="0" />
+          <iframe className="youtube-player" type="text/html" width="640" height="385" src={video} allowFullScreen frameBorder="0" title="Video Player" />
         </div>
       )
     }

@@ -10,8 +10,21 @@
 
 .social-links > div {
     margin: 5px 15px;
+    cursor: pointer;
 }
 
 .share-count {
     text-align: center;
+}
+
+.instagram-link {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #d93175;
+    font-size: 120%;
+    color: white;
 }
