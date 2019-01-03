@@ -14,26 +14,47 @@ export default class Search extends Component {
         };
     }
 
+    componentDidMount () {
+      const searchTerm = window.location.search;
+      if (searchTerm && searchTerm.includes("?q=")) {
+        this.search({target: {value: searchTerm.replace("?q=","")}});
+      }
+    }
+
     search (evt) {
-        const query = evt.target.value;
+        this.query = evt.target.value;
         this.index = this.index ? this.index : Index.load(this.props.searchIndex);
+        const searchResults = this.index
+          .search(this.query, {})
+          .map(({
+            ref
+          }) => this.index.documentStore.getDoc(ref))
+          .map((result) => {
+            if (!result.src) {
+              try {
+                // eslint-disable-next-line
+                result.src = this.props.imageIndex[result.cover.replace("./images/", "")].src;
+              } catch (e) {
+                result.src = result.cover;
+              }
+            }
+            return result
+          });
+        if (searchResults && searchResults.length) {
+          this.updateSearchUrl(this.query);
+        }
         this.setState({
-            query,
-            results: this.index
-                .search(query, {})
-                .map(({ ref }) => this.index.documentStore.getDoc(ref))
-                .map((result) => {
-                  if (!result.src) {
-                    try {
-                      // eslint-disable-next-line
-                      result.src = this.props.imageIndex[result.cover.replace("./images/", "")].src;
-                    } catch (e)  {
-                      result.src = result.cover;
-                    }
-                  }
-                  return result
-                })
+            query: this.query,
+            results: searchResults
         });
+    }
+
+    updateSearchUrl () {
+      const searchTerm = window.location.search;
+      if (this.query && (!searchTerm || (searchTerm && searchTerm.replace("?q=", "") !== this.query))) {
+        // eslint-disable-next-line
+        history.replaceState({}, document.title, `${window.location.pathname}?q=${this.query}`);
+      }
     }
 
     render() {
