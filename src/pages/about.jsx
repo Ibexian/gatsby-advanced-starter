@@ -19,7 +19,6 @@ export const query = graphql`
 
 class AboutPage extends Component {
   render() {
-    console.log(this.props)
     return (
       <Layout>
         <div className="about-container">

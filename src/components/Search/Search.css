@@ -1,0 +1,9 @@
+.search-container {
+  min-height: calc(95vh - 260px);
+}
+
+.search-container input {
+  font-size: 200%;
+  margin: 0 0 1em 19px;
+  color: #455350;
+}

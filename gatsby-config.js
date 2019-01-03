@@ -50,7 +50,7 @@ module.exports = {
           {
             resolve: "gatsby-remark-images",
             options: {
-              maxWidth: 1080
+              maxWidth: 1800
             }
           },
           {
@@ -181,6 +181,24 @@ module.exports = {
             output: config.siteRss
           }
         ]
+      }
+    }, {
+      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+      options: {
+        // Fields to index
+        fields: [`title`, `tags`],
+        // How to resolve each field`s value for a supported node type
+        resolvers: {
+          // For any node of type MarkdownRemark, list how to resolve the fields` values
+          MarkdownRemark: {
+            title: node => node.frontmatter.title,
+            tags: node => node.frontmatter.tags,
+            path: node => node.fields.slug,
+            cover: node => node.frontmatter.image.feature,
+            digest: node => node.internal.contentDigest,
+            date: node => node.fields.date
+          }
+        }
       }
     }
   ]

@@ -75,7 +75,7 @@ export const pageQuery = graphql`
             image {
                 feature {
                     childImageSharp {
-                      fluid(maxWidth: 1800, maxHeight: 1000, cropFocus: ENTROPY) {
+                      fluid(maxWidth: 1800, maxHeight: 1000, cropFocus: ENTROPY, quality: 90) {
                         ...GatsbyImageSharpFluid
                       }
                     }

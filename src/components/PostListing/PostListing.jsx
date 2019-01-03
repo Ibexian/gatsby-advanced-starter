@@ -11,13 +11,12 @@ class PostListing extends React.Component {
     // eslint-disable-next-line
     this.props.postEdges.forEach(postEdge => {
       postList.push({
-        path: postEdge.node.fields.slug,
-        tags: postEdge.node.frontmatter.tags,
-        cover: postEdge.node.frontmatter.image.feature.childImageSharp.fluid,
-        title: postEdge.node.frontmatter.title,
-        date: postEdge.node.fields.date,
-        excerpt: postEdge.node.excerpt,
-        timeToRead: postEdge.node.timeToRead
+        path: postEdge.path || postEdge.node.fields.slug,
+        tags: postEdge.tags || postEdge.node.frontmatter.tags,
+        cover: postEdge.cover || postEdge.node.frontmatter.image.feature.childImageSharp.fluid,
+        title: postEdge.title || postEdge.node.frontmatter.title,
+        date: postEdge.date || postEdge.node.fields.date,
+        src: postEdge.src
       });
     });
     return postList;
@@ -25,12 +24,18 @@ class PostListing extends React.Component {
 
   render() {
     const postList = this.getPostList();
+
+
     return (
       <div className="postContainer">
         {postList.map(post => (
           <Link to={post.path} key={post.title}>
             <div className="postBox">
-              <Img fluid={post.cover} className="postImage" />
+              { post.src ?
+                (<div className="postImage" style={{background: `url(${post.src}) center center`}} />)
+                :
+                (<Img fluid={post.cover} className="postImage" />)
+              }
               <h2>{post.title}</h2>
             </div>
           </Link>
