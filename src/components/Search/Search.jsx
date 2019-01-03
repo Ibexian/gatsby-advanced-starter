@@ -64,6 +64,7 @@ export default class Search extends Component {
               type="text"
               value={this.state.query}
               onChange={this.search}
+              placeholder="Search"
             />
             <PostListing postEdges={this.state.results} />
           </div>
