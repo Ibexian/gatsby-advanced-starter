@@ -24,8 +24,8 @@ export default class Search extends Component {
     search (evt) {
         this.query = evt.target.value;
         this.index = this.index ? this.index : Index.load(this.props.searchIndex);
-        const searchResults = this.index
-          .search(this.query, {})
+        const searchResults = this.query.length > 2 ? this.index
+          .search(this.query, { expand: true })
           .map(({
             ref
           }) => this.index.documentStore.getDoc(ref))
@@ -39,7 +39,7 @@ export default class Search extends Component {
               }
             }
             return result
-          });
+          }) : [];
         if (searchResults && searchResults.length) {
           this.updateSearchUrl(this.query);
         }

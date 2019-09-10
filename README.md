@@ -1,19 +1,12 @@
 ## TO DO
-
-- Search Page and Function
-- Import additional Styles
-- Image Captions Styles (typography.scss)
-- Get RSS feed working
-- 404 Page
 - SEO
-  - Sitemap generation
-  - robots.txt
-- Offline support - caching common.js?
+  - Sitemap generation (add to robots.txt)
+  - Site Config
+      - Google Analytics ID
 - Web App Manifest support - fix icons / favicon & Description
 - Relook at redirects
 - Recreate Index Page - Ask Christina what she wants
-- Google Analytics ID
-- Figure out Github Deployment (gh-pages)
 
+- Figure out Github Deployment / Script
+- Check RSS feed working after deploy
 
-WARNING: Make sure to edit `static/robots.txt` to include your domain for the sitemap!
